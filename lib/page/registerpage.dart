@@ -16,7 +16,8 @@ class _RegisterpageState extends State<Registerpage> {
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -114,90 +115,114 @@ class _RegisterpageState extends State<Registerpage> {
                     controller: confirmPasswordController,
                     decoration: const InputDecoration(
                       labelText: 'Confirm Password',
-                      labelStyle:
-                          TextStyle(color: Colors.white),
-                      border:
-                          OutlineInputBorder(),
-                      enabledBorder:
-                          OutlineInputBorder(borderSide:
-                              BorderSide(color:
-                                  Colors.white),),
-                      focusedBorder:
-                          OutlineInputBorder(borderSide:
-                              BorderSide(color:
-                                  Colors.white),),
+                      labelStyle: TextStyle(color: Colors.white),
+                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
                     ),
-                    validator:
-                        (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please confirm your password!';
-                          }
-                          if (value != passwordController.text) {
-                            return 'Passwords do not match!';
-                          }
-                          return null;
-                        },
-                    obscureText:
-                        true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please confirm your password!';
+                      }
+                      if (value != passwordController.text) {
+                        return 'Passwords do not match!';
+                      }
+                      return null;
+                    },
+                    obscureText: true,
                   ),
-                  SizedBox(height:
-                          20),
+                  SizedBox(height: 20),
                   ElevatedButton(
-                    onPressed:
-                        () {
-                          if (formkey.currentState!.validate()) {
-                            var newUser =
-                                Users(userName:
-                                    userNameController.text,
-                                    email:
-                                    emailController.text,
-                                    password:
-                                    passwordController.text);
-                            Provider.of<Providerku>(context, listen:
-                                false).registerUser(newUser);
-                            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:
-                                Text('Registration Successful!')));
-                            Navigator.pushNamed(context, '/');
-                          }
-                        },
-                    child:
-                        Text('Register'),
+                    onPressed: () {
+                      if (formkey.currentState!.validate()) {
+                        var newUser = Users(
+                            userName: userNameController.text,
+                            email: emailController.text,
+                            password: passwordController.text);
+                        Provider.of<Providerku>(context, listen: false)
+                            .registerUser(newUser);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Registration Successful!')));
+                        Navigator.pushNamed(context, '/');
+                      }
+                    },
+                    child: Text('Register'),
                   ),
-                  const SizedBox(height:
-                          20.0,),
-                  const Row(mainAxisAlignment:
-                          MainAxisAlignment.center, children:
-                              [
-                                Expanded(child:
-                                  Divider(thickness:
-                                      0.7, color:
-                                      Colors.white,),),
-                                Padding(padding:
-                                  EdgeInsets.symmetric(vertical:
-                                      0, horizontal:
-                                      10,), child:
-                                  Text('Login With', style:
-                                      TextStyle(color:
-                                          Colors.white,),),),
-                                Expanded(child:
-                                  Divider(thickness:
-                                      0.7, color:
-                                      Colors.white,),),
-                              ],
-                            ),
-                  const SizedBox(height:
-                          20.0,),
-                  Row(mainAxisAlignment:
-                          MainAxisAlignment.spaceEvenly, children:[
-                              // Add logos for social login here
-                            ],
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          thickness: 0.7,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 0,
+                          horizontal: 10,
+                        ),
+                        child: Text(
+                          'Login With',
+                          style: TextStyle(
+                            color: Colors.white,
                           ),
-                  TextButton(onPressed:
-                          () { Navigator.pop(context); },
-                            child:
-                              const Text('Already have an account? Login',
-                                style :TextStyle(color :
-                                  Colors.white),),)
+                        ),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          thickness: 0.7,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          print('Facebook Login');
+                        },
+                        icon: const Icon(Bootstrap.facebook,
+                            color: Colors.white, size: 30),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          print('Google Login');
+                        },
+                        icon: const Icon(Bootstrap.google,
+                            color: Colors.white, size: 30),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          print('Twitter Login');
+                        },
+                        icon: const Icon(Bootstrap.twitter,
+                            color: Colors.white, size: 30),
+                      ),
+                    ],
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      'Already have an account? Login',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )
                 ],
               ),
             ),

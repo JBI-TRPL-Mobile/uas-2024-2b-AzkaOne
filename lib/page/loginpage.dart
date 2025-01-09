@@ -138,7 +138,27 @@ class _LoginpageState extends State<Loginpage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      // Add logos for social login here
+                      IconButton(
+                        onPressed: () {
+                          print('Facebook Login');
+                        },
+                        icon: const Icon(Bootstrap.facebook,
+                            color: Colors.white, size: 30),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          print('Google Login');
+                        },
+                        icon: const Icon(Bootstrap.google,
+                            color: Colors.white, size: 30),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          print('Twitter Login');
+                        },
+                        icon: const Icon(Bootstrap.twitter,
+                            color: Colors.white, size: 30),
+                      ),
                     ],
                   ),
                   TextButton(
@@ -160,6 +180,6 @@ class _LoginpageState extends State<Loginpage> {
   }
 }
 
-extension on bool {
-  get userName => null;
-}
+// extension on bool {
+//   get userName => null;
+// }

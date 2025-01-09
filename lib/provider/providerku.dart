@@ -11,13 +11,13 @@ class Providerku with ChangeNotifier {
     notifyListeners();
   }
 
-  bool loginUser(String email, String password) {
+  Users? loginUser(String email, String password) {
     for (var user in _registerUsers) {
       if (user.email == email && user.password == password) {
-        return true;
+        return user;
       }
     }
-    return false;
+    return null;
   }
 }
 
