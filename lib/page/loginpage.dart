@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:template_project/page/registerpage.dart';
 import 'package:template_project/provider/providerku.dart';
 import 'package:template_project/page/home.dart';
+import 'package:template_project/page/myhome.dart';
 
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
@@ -107,7 +108,7 @@ class _LoginpageState extends State<Loginpage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    Myhome(userName: loggedInUser.userName)),
+                                    MyHome(userName: loggedInUser.userName)),
                           );
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(

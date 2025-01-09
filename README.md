@@ -17,6 +17,11 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
+NAMA:MOCH HISOM AZKA
+KELAS: 2B TRPL
+NIM: 362358302026
+
 1.![tampilan awal](image.png)
 2.![Login](image-1.png)
 3.![register](image-2.png)
+5.![home](image-3.png)
